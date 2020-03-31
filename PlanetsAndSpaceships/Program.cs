@@ -26,7 +26,30 @@ namespace PlanetsAndSpaceships
             var rockyPlanets = planetList.GetRange(0, 4);
             // Remove() finds a specific item and removes it
             planetList.Remove("Pluto");
-            Console.WriteLine(planetList);
+            foreach (var planet in planetList)
+            {
+                Console.WriteLine(planet);
+                Console.ReadLine();
+            }
+
+            var satellites = new Dictionary<string, List<string>>();
+
+            satellites.Add("Mariner 10", new List<string> {"Mercury, Earth, Jupiter, Uranus" });
+            satellites.Add("Voyager 1", new List<string> { "Venus, Mars, Saturn, Neptune" });
+            satellites.Add("Cassini", new List<string> { "Mercury, Neptune" });
+            satellites.Add("Ulysses", new List<string> { "Venus, Uranus"});
+            satellites.Add("Pioneer 11", new List<string> { "Earth, Saturn" });
+            satellites.Add("Sputnik", new List<string> { "Mars, Jupiter" });
+
+            foreach (var (satellite, planets) in satellites)
+            {
+                Console.Write($"Satellite: {satellite}. Planets: ");
+                for (int i = 0; i < planets.Count; i++)
+                {
+                    Console.Write($"{planets[i]}");
+                };
+                Console.ReadLine();
+            }
         }
     }
 }
